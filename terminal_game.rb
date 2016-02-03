@@ -5,6 +5,8 @@ include Curses
 class Snake
   LOST_STRING = 'You LOST'
 
+  attr_accessor :win
+
   def initialize
     init_screen
     cbreak
@@ -44,33 +46,33 @@ class Snake
   end
 
   def draw
-    @win.box(@border_wall, @border_roof)				# border
+    win.box(@border_wall, @border_roof)				# border
 
-    @win.setpos(@food_x, @food_y)
-    @win.addstr('*')								#draw food
+    win.setpos(@food_x, @food_y)
+    win.addstr('*')								#draw food
 
-    @win.setpos(0, 3)
-    @win.addstr("Snake Length: #{@snake_len}")
+    win.setpos(0, 3)
+    win.addstr("Snake Length: #{@snake_len}")
 
-    @win.setpos(0, cols/2 - @title.length/2)
-    @win.addstr(@title)
+    win.setpos(0, cols/2 - @title.length/2)
+    win.addstr(@title)
 
-    @win.setpos(0, cols - 12)
-    @win.addstr("Ticks: #{@ticks}")
+    win.setpos(0, cols - 12)
+    win.addstr("Ticks: #{@ticks}")
 
-    @win.setpos(lines - 1, 3)
-    @win.addstr("Speed: #{@display_speed}")
+    win.setpos(lines - 1, 3)
+    win.addstr("Speed: #{@display_speed}")
 
-    @win.setpos(lines - 1, cols - 12)
-    @win.addstr("Score: #{@game_score}")
+    win.setpos(lines - 1, cols - 12)
+    win.addstr("Score: #{@game_score}")
 
     #draw the snake and its tail
     (0..@snake_len).each do |i|
-      @win.setpos(@pos_x[i],@pos_y[i])
-      @win.addstr(i == 1 ? '#' : '+')
+      win.setpos(@pos_x[i],@pos_y[i])
+      win.addstr(i == 1 ? '#' : '+')
     end
 
-    @win.refresh
+    win.refresh
   end
 
   def process_world
@@ -90,7 +92,7 @@ class Snake
         process_world
         draw
         tick
-        pause?
+        pause
         check_end_game
         clear_window
       end
@@ -115,16 +117,16 @@ class Snake
 
     clear_window
 
-    @win.setpos(lines/2, cols/2-LOST_STRING.length/2)
-    @win.addstr(LOST_STRING)
-    @win.refresh
+    win.setpos(lines/2, cols/2-LOST_STRING.length/2)
+    win.addstr(LOST_STRING)
+    win.refresh
 
     sleep(2)
 
     exit
   end
 
-  def pause?
+  def check_pause
     if @pause
       sleep(0.5)
       pause?
@@ -208,8 +210,8 @@ class Snake
   end
 
   def clear_window
-    @win.clear
-    @win.refresh
+    win.clear
+    win.refresh
   end
 end
 
