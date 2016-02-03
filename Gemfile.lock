@@ -1,0 +1,46 @@
+GIT
+  remote: https://github.com/SergioFierens/ai4r
+  revision: 409e17b9dc1de9955e23108a09aaef849280dd28
+  specs:
+    ai4r (1.13)
+
+GEM
+  specs:
+    celluloid (0.17.2)
+      celluloid-essentials
+      celluloid-extras
+      celluloid-fsm
+      celluloid-pool
+      celluloid-supervision
+      timers (>= 4.1.1)
+    celluloid-essentials (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-extras (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-fsm (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-pool (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-supervision (0.20.5)
+      timers (>= 4.1.1)
+    coderay (1.1.0)
+    hitimes (1.2.3)
+    method_source (0.8.2)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    slop (3.6.0)
+    timers (4.1.1)
+      hitimes
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ai4r!
+  celluloid
+  pry
+
+BUNDLED WITH
+   1.10.6
