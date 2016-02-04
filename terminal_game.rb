@@ -12,6 +12,7 @@ class Snake
     cbreak
     noecho						  # does not show input of getch
     stdscr.nodelay = 1 	# the getch doesnt system_pause while waiting for instructions
+    stdscr.keypad = true
     curs_set(0)					# the cursor is invisible.
 
     @win = Window.new(lines, cols, 0, 0) #set the playfield the size of current terminal window
@@ -92,7 +93,7 @@ class Snake
         process_world
         draw
         tick
-        pause
+        check_pause
         check_end_game
         clear_window
       end
@@ -129,7 +130,7 @@ class Snake
   def check_pause
     if @pause
       sleep(0.5)
-      pause?
+      check_pause
     end
   end
 
@@ -140,18 +141,19 @@ class Snake
 
   def read_input
     case getch
+      when KEY_UP
+        @dir = :up if @dir != :down
+      when KEY_DOWN
+        @dir = :down if @dir != :up
+      when KEY_RIGHT
+        @dir = :right if @dir != :left
+      when KEY_LEFT
+        @dir = :left if @dir != :right
       when ?Q, ?q
         exit
-      when ?W, ?w
-        @dir = :up if @dir != :down
-      when ?S, ?s
-        @dir = :down if @dir != :up
-      when ?D, ?d
-        @dir = :right if @dir != :left
-      when ?A, ?a
-        @dir = :left if @dir != :right
       when ?P, ?p
         @pause = @pause ? false : true
+
     end
   end
 
