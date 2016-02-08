@@ -5,6 +5,7 @@ GIT
     ai4r (1.13)
 
 GEM
+  remote: https://rubygems.org/
   specs:
     celluloid (0.17.2)
       celluloid-essentials
@@ -24,6 +25,7 @@ GEM
     celluloid-supervision (0.20.5)
       timers (>= 4.1.1)
     coderay (1.1.0)
+    curses (1.0.1)
     hitimes (1.2.3)
     method_source (0.8.2)
     pry (0.10.3)
@@ -40,6 +42,7 @@ PLATFORMS
 DEPENDENCIES
   ai4r!
   celluloid
+  curses
   pry
 
 BUNDLED WITH
