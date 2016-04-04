@@ -1,10 +1,10 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="thread_poolJR" type="RubyRunConfigurationType" factoryName="Ruby">
+  <configuration default="false" name="thread_pool1" type="RubyRunConfigurationType" factoryName="Ruby">
     <module name="ruby_playground" />
     <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
     <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="$MODULE_DIR$" />
-    <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="true" />
-    <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="rbenv: jruby-9.0.1.0" />
+    <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+    <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
     <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
     <envs />
     <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
